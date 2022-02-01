@@ -1,0 +1,34 @@
+/*
+Theme Name: wordpress_theme
+Text Domain: wordpress_theme
+Version: 1.0
+Description: First WordPress Theme
+Tags: first wordpress theme
+Author: naraitai
+Author URI: https://github.com/naraitai
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+}
+
+#header {
+    border: 2px solid red;
+    height: 25vh;
+}
+
+#footer {
+    border: 2px solid red;
+    height: 10vh;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
