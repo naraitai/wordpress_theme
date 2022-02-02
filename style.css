@@ -21,7 +21,7 @@ body {
 
 #header {
     border: 2px solid red;
-    height: 25vh;
+    height: 15vh;
 }
 
 #footer {
@@ -31,4 +31,68 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+#nav-main {
+    height: 5vh;
+    border: 2px solid red;
+}
+
+#main {
+    border: 2px solid red;
+}
+
+.wrapper {
+    display: flex;
+    height: 60vh;
+
+    border: 2px solid purple;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    height: 100%;
+    border: 2px solid red;
+}
+
+.scroller {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    border: 2px solid red;
+}
+
+.scroller::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 100%;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+    background-color: lightgrey;
+    border-radius: 30px;
+
+}
+
+.section-title {
+    border: 2px solid blue;
+    width: fit-content;
+}
+
+.detail-card {
+    height: 75%;
+    width: 50%;
+    align-self: center;
+    border: 2px solid blue;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroller-item {
+    min-height: 25%;
+    margin: 2%;
+    border: 2px solid blue;
 }
