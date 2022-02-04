@@ -13,4 +13,14 @@
         </header>
         <nav id="nav-main">
             NAV (HEADER.PHP)
+            <?php
+            //Generate navbar
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'header-menu',
+                    //Remove WordPress added div container
+                    'container' => ''
+                )
+            );
+            ?>
         </nav>

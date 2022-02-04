@@ -8,6 +8,15 @@ Author: naraitai
 Author URI: https://github.com/naraitai
 */
 
+/*
+
+Contents:
+    2: Header
+    3: Footer
+    4: Navigation
+
+*/
+
 * {
     padding: 0;
     margin: 0;
@@ -19,10 +28,18 @@ body {
     position: relative;
 }
 
+/* 
+    Section 2: Header
+*/
+
 #header {
     border: 2px solid red;
     height: 15vh;
 }
+
+/* 
+    Section 3: Footer
+*/
 
 #footer {
     border: 2px solid red;
@@ -33,9 +50,18 @@ body {
     width: 100%;
 }
 
+/* 
+    Section 3: Navigation
+*/
+
 #nav-main {
-    height: 5vh;
+    height: fit-content;
     border: 2px solid red;
+    text-align: center;
+}
+
+.menu li {
+    display: inline;
 }
 
 #main {
@@ -92,7 +118,28 @@ body {
 }
 
 .scroller-item {
-    min-height: 25%;
+    height: 33%;
     margin: 2%;
+    display: flex;
+    text-align: center;
+
     border: 2px solid blue;
+}
+
+
+.scroller-item img {
+    width: 20%;
+    height: 100%;
+    border: 2px solid blue;
+    object-fit: cover;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.date {
+    text-align: left;
 }
