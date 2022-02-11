@@ -8,14 +8,24 @@ Author: naraitai
 Author URI: https://github.com/naraitai
 */
 
-/*
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+	0. 	Global setup
+    1.  Structure
+	2. 	Header
+    3.  Navigation
+    4.  Body
+	4. 	Footer	
+----------------------------------------------------------------*/
 
-Contents:
-    2: Header
-    3: Footer
-    4: Navigation
-
-*/
+/*---------------------------------------------------------------
+	0.  Global setup
+----------------------------------------------------------------*/
+:root {
+    --primary-cl: #2A2B2E;
+    --secondary-cl: #DFE4E0;
+}
 
 * {
     padding: 0;
@@ -25,72 +35,200 @@ Contents:
 
 body {
     min-height: 100vh;
-    position: relative;
+    position: relative; /* need for footer position: aboslute */
+    padding-bottom: 10vh; /* footer height; avoids page content slipping behind footer */
 }
 
-/* 
-    Section 2: Header
-*/
+/*---------------------------------------------------------------
+	1.  Structure
+----------------------------------------------------------------*/
+
+/*---------------------------------------------------------------
+	2.  Header
+----------------------------------------------------------------*/
 
 #header {
+    display: flex;
     border: 2px solid red;
     height: 15vh;
 }
 
-/* 
-    Section 3: Footer
-*/
+.custom-logo, .logo {
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 
-#footer {
     border: 2px solid red;
-    height: 10vh;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
 }
 
-/* 
-    Section 3: Navigation
-*/
+/*---------------------------------------------------------------
+	3.  Navigation
+----------------------------------------------------------------*/
 
 #nav-main {
     height: fit-content;
     border: 2px solid red;
     text-align: center;
+
+    overflow: hidden;
 }
 
 .menu li {
     display: inline;
 }
 
+/* WordPress class name for li items */
+.menu-item a {
+    float: left;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav {
+    overflow: hidden;
+    display: block;
+}
+
+.nav a.active {
+    background-color: blue;
+}
+
+.nav .icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .nav a {display: none;}
+    .nav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .nav.responsive {position: relative;}
+    .nav.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .nav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+  }
+
+
+/*---------------------------------------------------------------
+	3.  Body
+----------------------------------------------------------------*/
+
 #main {
     border: 2px solid red;
+
 }
 
 .wrapper {
     display: flex;
-    height: 60vh;
+    flex-direction: column;
+    flex: 1;
+    width: 80%;
+    margin: 0 auto;
+    /*background: linear-gradient(-30deg, white 80%, red 80.1%);*/
 
     border: 2px solid purple;
 }
 
-.detail {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-    height: 100%;
-    border: 2px solid red;
+.section-title {
+    border: 2px solid blue;
+    width: 100%;
+    /*border-radius: 0 0 100% 0;*/
+    background-color: var(--primary-cl);
+    color: var(--secondary-cl);
+    /*background: linear-gradient(-30deg, white 30%, red 30.1%);*/
 }
 
 .scroller {
-    width: 30%;
-    height: 100%;
+    width: 100%;
     display: flex;
+    /*position: relative;*/
     flex-direction: column;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     border: 2px solid red;
+    align-items: center;
+    background-color: var(--secondary-cl);
 }
+
+.scroller-itm {
+    width: 95%;
+    margin: 1%;
+    background-color: var(--primary-cl);
+    color: var(--secondary-cl);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    height: 20vh;
+    border: 2px solid black;
+    margin-bottom: 0;
+}
+
+.scroller-itm-l {
+    width: 80%;
+    height: 100%;
+    border: 2px solid blue;
+}
+
+.scroller-itm-r {
+    width: 20%;
+    height: 100%;
+    
+    border: 2px solid blue;
+}
+
+.scroller-itm-r img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 0 13px 13px 0;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+  
+  #overlay-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: red;
+      height: 60vh;
+      width: 80vw;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%,-50%);
+      color: var(--secondary-cl);
+      background-color: var(--primary-cl);
+      border-radius: 10px;
+  }
+
+  #overlay-card img {
+    width: 100%;
+    max-height: 25%;
+    object-fit: cover;
+    border: 2px solid red;
+    border-radius: 10px 10px 0 0;
+  }
 
 .scroller::-webkit-scrollbar {
     width: 0.5rem;
@@ -103,43 +241,15 @@ body {
 
 }
 
-.section-title {
-    border: 2px solid blue;
-    width: fit-content;
-}
+/*---------------------------------------------------------------
+	2.  Footer
+----------------------------------------------------------------*/
 
-.detail-card {
-    height: 75%;
-    width: 50%;
-    align-self: center;
-    border: 2px solid blue;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.scroller-item {
-    height: 33%;
-    margin: 2%;
-    display: flex;
-    text-align: center;
-
-    border: 2px solid blue;
-}
-
-
-.scroller-item img {
-    width: 20%;
-    height: 100%;
-    border: 2px solid blue;
-    object-fit: cover;
-}
-
-.post-info {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-}
-
-.date {
-    text-align: left;
+#footer {
+    border: 2px solid red;
+    height: 10vh;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }

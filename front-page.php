@@ -5,25 +5,10 @@ get_header();
 <main id="main">
     MAIN (front-page.php)
     <section class="wrapper">
-        <div class="detail">
-            <div class="section-title">
-                <h2>SECTION TITLE</h2>
-            </div>
-            <div class="detail-card">
-                DETAIL CARD<br>
-                <h3>
-                    <?php
-                    the_title();
-                    ?>
-                </h3>
-                <?php
-                the_excerpt();
-                the_shortlink( 'Read more' );
-                ?>
-            </div>
+        <div class="section-title">
+            <h2>SECTION TITLE</h2>
         </div>
         <div class="scroller">
-            SCROLLER (front-page.php)
             <?php
             if ( have_posts() ):
                 while ( have_posts() ): the_post();
@@ -32,6 +17,10 @@ get_header();
                 endwhile;
             endif;
             ?>
+            <div id="overlay" class="" onclick="off()">
+                <div id="overlay-card">
+                </div>
+            </div>
         </div>
     </section>
 </main>
