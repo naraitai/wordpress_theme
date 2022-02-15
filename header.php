@@ -27,6 +27,9 @@
             ?>
         </header>
         <nav id="nav-main" class="nav">
+            <a href="javascript:void(0);" class="icon" onclick="expdMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
             <?php
             //Generate navbar
             wp_nav_menu(
@@ -37,7 +40,4 @@
                 )
             );
             ?>
-            <a href="javascript:void(0);" class="icon" onclick="expdMenu()">
-                <i class="fa fa-bars"></i>
-            </a>
         </nav>
